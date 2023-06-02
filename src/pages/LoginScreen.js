@@ -1,8 +1,12 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { View, Text, TextInput,  TouchableOpacity } from "react-native";
+import { LoginContexts } from "../contexts/LoginContexts";
 function LoginScreen({navigation}) {
 
 
+    
+
+    let {setIsLogin} = useContext(LoginContexts)
    const [username, setUsername] = useState("");
    const [password, setPassword] = useState("");
 
@@ -65,7 +69,7 @@ function LoginScreen({navigation}) {
       />
 
     <TouchableOpacity 
-    onPress={() => navigation.navigate('Home')}
+    onPress={() => setIsLogin(true)}
       style={{
         width:130, 
         backgroundColor:"#94AE89", 
